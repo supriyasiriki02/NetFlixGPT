@@ -1,0 +1,2 @@
+# NetFlixGPT
+React NetFlix Clone
