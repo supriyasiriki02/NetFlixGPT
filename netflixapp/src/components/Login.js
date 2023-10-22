@@ -14,13 +14,15 @@ const Login = () => {
   }
   const email = useRef(null);
   const password = useRef(null);
+  const fullName = useRef(null);
+  // const fullName=useRef(null);
   const submitHandler=()=>{
    
     const message = checkValidation(email.current.value,password.current.value);
     setErrorMessage(message);
 
     if(isSignIn){
-      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value,fullName.current.value)
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
@@ -58,6 +60,7 @@ const Login = () => {
           {isSignIn&&<input
               type='text'
               id='fullName'
+              ref={fullName}
               
               className='w-full p-2 rounded-md'
               placeholder='Full Name'
